@@ -1,0 +1,10 @@
+.env
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+data/
+uploads/
+private/
+node_modules/
+.DS_Store
