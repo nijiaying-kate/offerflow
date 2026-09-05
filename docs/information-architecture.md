@@ -272,7 +272,7 @@ Optional fields:
 
 Default values:
 
-- Status: `To Review`
+- Status: `To Apply`
 - Priority: `Unsure`
 - Materials Status: `Not Started`
 

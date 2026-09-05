@@ -241,12 +241,6 @@ Recommended relationships:
 
 ## 11. Local Storage Notes
 
-The final storage choice has not been made.
-
-Possible local-first options:
-
-- Browser local storage for prototype only
-- IndexedDB for a browser-based local app
-- SQLite for a desktop-like local app
+The implemented v0.1 uses IndexedDB through Dexie. The complete personal workspace is validated and saved atomically as a versioned record. Job status events support historical weekly counts. See [MVP Implementation Notes](mvp-implementation.md) for implemented fields and simplifications.
 
 Any database files, uploaded documents, exports, or private user data must remain outside Git history.

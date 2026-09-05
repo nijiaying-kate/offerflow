@@ -8,3 +8,16 @@ uploads/
 private/
 node_modules/
 .DS_Store
+dist/
+test-results/
+playwright-report/
+*.local
+.env.*
+*.db-wal
+*.db-shm
+*.sqlite-wal
+*.sqlite-shm
+*.sqlite3-wal
+*.sqlite3-shm
+backups/
+exports/

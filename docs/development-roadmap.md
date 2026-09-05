@@ -1,5 +1,9 @@
 # Development Roadmap
 
+## Current Implementation
+
+Version 0.1.0 is implemented as a local web app with tracking, CSV/TSV/XLSX and paste imports, personal materials, resume workspaces, weekly reviews, overview, and backup/restore. See [MVP Implementation Notes](mvp-implementation.md) for shipped scope and limits. The phases and estimates below are the original planning baseline, not a claim that later polish or integrations are complete.
+
 ## 1. Purpose
 
 This roadmap translates the product requirements into practical implementation phases.
