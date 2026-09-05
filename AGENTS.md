@@ -10,4 +10,6 @@ Public demos must use fictional, synthetic, or properly anonymized data only.
 
 Before implementing any new feature, check the product requirements and data model in the `docs/` directory.
 
-During the current phase, do not add complex AI agents, authentication, multi-user support, cloud sync, or automatic job application submission features unless Jiaying Ni explicitly changes the project scope.
+During the current phase, do not add complex AI agents, authentication, login, multi-user support, cloud sync, automatic crawling, Feishu automatic synchronization, or automatic job application submission features unless Jiaying Ni explicitly changes the project scope.
+
+All repository-facing documentation and demo content should be written in English.
