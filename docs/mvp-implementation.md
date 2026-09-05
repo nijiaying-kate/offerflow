@@ -50,4 +50,8 @@ Validation rejects unsupported backups, invalid dates, unsupported URL protocols
 
 The automated suite covers domain behavior and real-browser workflows with fictional data. Browser contexts are isolated from the user's normal profile. Screenshots, traces, downloads, and build output are not committed.
 
+The latest implementation validation passed 16 domain tests and five browser workflows, with a successful production build. The Overview workflow verifies required fields, direct row creation and editing, cancellation, draft retention during internal navigation, reload persistence, and mobile entry without a dialog. Existing browser workflows cover imports, materials, resume preparation, weekly reviews, backup/restore, archiving, deletion, and responsive layouts.
+
+The build reports a large on-demand ExcelJS chunk and upstream Zod annotation warnings; these do not prevent a successful build. Excel parsing is loaded only when needed.
+
 The next iteration should follow actual usage: real export column variations, preferred tracker columns, resume editing needs, and backup ergonomics. No new integration is needed before validating these workflows.
