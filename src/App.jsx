@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { liveQuery } from "dexie";
 import {
   ArrowUpRight,
@@ -73,6 +73,7 @@ import {
 } from "./components";
 import Editor from "./editors";
 import ImportJobs from "./ImportJobs";
+import OverviewTable from "./OverviewTable";
 
 const NAV = [
   ["tracker", "Applications", Table2],
@@ -130,6 +131,8 @@ export default function App() {
   const [dueOnly, setDueOnly] = useState(false);
   const [writing, setWriting] = useState(0);
   const [importKey, setImportKey] = useState(0);
+  const overviewTable = useRef(null);
+  const [overviewOpened, setOverviewOpened] = useState(false);
   useEffect(() => {
     const subscription = liveQuery(readState).subscribe({
       next: (value) => {
@@ -167,6 +170,7 @@ export default function App() {
     }
   };
   const navigate = (next) => {
+    if (next === "dashboard") setOverviewOpened(true);
     setPage(next);
     setSidebar(false);
     setQuery("");
@@ -269,6 +273,10 @@ export default function App() {
         (r) => r.week_start_date === monday(),
       );
       open("reviews", existing || newReview(state.jobs));
+    } else if (page === "dashboard") {
+      const cell = overviewTable.current?.querySelector("[data-new-company]");
+      cell?.focus();
+      cell?.scrollIntoView({ block: "nearest", inline: "nearest" });
     } else open("jobs", newJob());
   };
   const allRows = state.jobs
@@ -430,7 +438,7 @@ export default function App() {
                     Import jobs
                   </Button>
                   <Button icon={Plus} variant="primary" onClick={addCurrent}>
-                    Add opportunity
+                    {page === "dashboard" ? "Add row" : "Add opportunity"}
                   </Button>
                 </div>
               </div>
@@ -817,54 +825,15 @@ export default function App() {
               </div>
             </>
           )}
-          {page === "dashboard" && (
-            <div className="overview-grid">
-              <section>
-                <div className="section-heading">
-                  <h2>Next up</h2>
-                  <span className="count">{pending.length}</span>
-                </div>
-                {pending.length ? (
-                  <div className="action-list">
-                    {[...pending]
-                      .sort((a, b) =>
-                        (a.deadline || "9999").localeCompare(
-                          b.deadline || "9999",
-                        ),
-                      )
-                      .slice(0, 8)
-                      .map((j) => (
-                        <button key={j.id} onClick={() => open("jobs", j)}>
-                          <span className="company-monogram">
-                            {j.company[0]}
-                          </span>
-                          <span className="action-title">
-                            <strong>{j.company}</strong>
-                            <span>{j.role}</span>
-                            <small>
-                              {j.next_action || "Set a next action"}
-                            </small>
-                          </span>
-                          <Deadline job={j} />
-                          <ArrowUpRight size={17} />
-                        </button>
-                      ))}
-                  </div>
-                ) : (
-                  <Empty
-                    title="Nothing waiting on you"
-                    action={
-                      <Button
-                        icon={Plus}
-                        onClick={() => open("jobs", newJob())}
-                      >
-                        Add opportunity
-                      </Button>
-                    }
-                  />
-                )}
-              </section>
-              <section>
+          {overviewOpened && (
+            <div hidden={page !== "dashboard"} ref={overviewTable}>
+              <OverviewTable
+                key={importKey}
+                jobs={active}
+                mutate={mutate}
+                notify={notify}
+              />
+              <section className="overview-pipeline">
                 <div className="section-heading">
                   <h2>Pipeline</h2>
                   <span className="muted">{active.length} total</span>

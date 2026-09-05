@@ -94,7 +94,7 @@ It should not become an analytics-heavy page in the MVP.
 Recommended layout:
 
 1. Top summary strip
-2. Action queue
+2. Editable opportunities table with a blank entry row
 3. Upcoming deadlines
 4. Status overview
 5. Recent imports
@@ -113,7 +113,9 @@ Each metric should link to the relevant filtered tracker view.
 
 ### 6.4 Action Queue
 
-The action queue should list jobs that need user action.
+The implemented Overview uses an editable opportunities table in place of the action queue. Company, role, status, dates, link, notes, and supporting fields are entered directly in cells. A blank top row is always available, and Add Row focuses its company cell. Each row has save and cancel controls. Saved rows use the same Job records as Applications, and new jobs default to To Apply. Unsaved row edits survive internal page navigation. No new-opportunity dialog is opened from Overview.
+
+The original action-queue criteria below remain useful for future prioritization.
 
 Include jobs where:
 

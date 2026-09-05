@@ -28,6 +28,7 @@ One document per personal workspace keeps multi-entity backup, restore, and rela
 ## Differences from Planning Documents
 
 - Manual and imported opportunities both default to `To Apply`, resolving the conflicting default in the original information architecture.
+- Overview supports direct table-cell entry and editing with per-row save and cancel. Its blank entry row replaces the creation dialog. Edits stay in memory across internal navigation, and reloading warns about unsaved changes. Saved records immediately update Applications and the pipeline. Concurrent edits to an already-changed row are rejected until the latest version is reloaded by canceling the local edit.
 - The tracker places status, priority, company/role, deadline, and next action first. Remaining fields are available through horizontal scrolling and the edit form.
 - Excel support means `.xlsx`; legacy `.xls` must be converted first.
 - Plain text import requires labeled fields rather than arbitrary natural-language extraction.

@@ -30,7 +30,7 @@ The server binds only to `127.0.0.1` and uses a fixed port. If port 5173 is occu
 - **Personal materials:** Organize experiences, achievements, reusable resume phrasing, and interview stories with types and tags.
 - **Resume workspaces:** Keep a target role, job description, linked opportunity, reusable materials, resume draft, and revision notes together. Duplicate drafts into new versions and export plain-text resumes.
 - **Weekly review:** Capture priorities, reflections, and editable counts based on recorded application status transitions.
-- **Overview:** Review pending actions and the current pipeline.
+- **Overview:** Create and edit opportunities directly in spreadsheet-style cells. A blank top row is always available; save or cancel each row without opening a dialog. Review the current pipeline below the table.
 - **Settings & data:** Export a complete JSON backup, restore a validated backup, export jobs as CSV, and optionally load fictional demo data into an empty workspace.
 
 ## Imports

@@ -894,6 +894,100 @@ tbody tr:hover {
   grid-template-columns: 1.3fr 1fr;
   gap: 40px;
 }
+.overview-table {
+  min-width: 2390px;
+  table-layout: fixed;
+}
+.overview-table th,
+.overview-table td {
+  padding: 7px;
+}
+.overview-table th {
+  height: 40px;
+  padding-left: 14px;
+}
+.overview-table td {
+  height: 51px;
+  border-right: 1px solid var(--border);
+}
+.overview-table td input,
+.overview-table td select {
+  width: 100%;
+  min-height: 34px;
+  font-size: 12px;
+  border-color: transparent;
+  background: transparent;
+}
+.overview-table td input:hover,
+.overview-table td select:hover {
+  border-color: #d3ded7;
+}
+.overview-table td input:focus,
+.overview-table td select:focus {
+  background: white;
+  border-color: var(--green);
+}
+.overview-table .overview-row-number {
+  width: 40px;
+  text-align: center;
+  padding: 7px;
+  color: #8ca496;
+}
+.overview-table .overview-row-actions {
+  width: 80px;
+  position: sticky;
+  right: 0;
+  background: #fff;
+  border-left: 1px solid var(--border);
+  box-shadow: -3px 0 5px #17372706;
+}
+.overview-table th.overview-row-actions {
+  background: #f8faf8;
+}
+.overview-row-actions form {
+  display: flex;
+  justify-content: center;
+  gap: 3px;
+}
+.overview-new-row {
+  background: #f1f7f3;
+}
+.overview-new-row td input {
+  border-color: #deebe2;
+  background: white;
+}
+.overview-table .overview-dirty-row .overview-row-actions {
+  background: #eef6f0;
+}
+.overview-row-actions .icon-button:first-child:not(:disabled) {
+  color: var(--green);
+}
+.overview-error-row p {
+  color: var(--red);
+  font-size: 12px;
+  padding: 6px 10px;
+}
+.overview-pipeline {
+  margin-top: 30px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+.overview-pipeline .pipeline {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 20px 24px;
+}
+@media (max-width: 1100px) {
+  .overview-pipeline .pipeline {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (max-width: 640px) {
+  .overview-pipeline .pipeline {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+}
 .section-heading {
   display: flex;
   align-items: center;

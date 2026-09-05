@@ -199,6 +199,7 @@ Materials Status tracks resume and application material readiness:
 The tracker should support:
 
 - Add job
+- Add and edit jobs directly in the Overview table, with row-level save and cancel controls and no creation dialog
 - Edit job
 - Delete job
 - Archive job
